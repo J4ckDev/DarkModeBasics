@@ -1,1 +1,1 @@
-# DarkModeBasics
+# :mortar_board: Dark Mode Basics
