@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Texturina:wght@500&display=swap");
+:root {
+  color-scheme: light dark;
+  --bg-color-dark: #333333;
+  --primary-color-dark: #ffbb55;
+  --text-color-dark: #ffe5bc;
+  --bg-color-light: #f2f2f2;
+  --primary-color-light: #0093d0;
+  --text-color-light: #4f4f4f;
+  --light-filter: none;
+  --dark-filter: brightness(0.6) contrast(1.2);
+}
+
+* {
+  font-family: "Texturina", serif;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+}
+
+body{
+    margin: auto;
+    padding: 20px;
+    max-width: 500px;
+    min-width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1{
+    width: 100%;
+    margin: 5px;
+    text-align: center;
+}
+
+div{
+    display: inherit;
+    justify-content: center;
+    width: 100%;
+}
+
+img{
+    border-radius: 5px;
+    margin: 10px;
+}
+
+
+button {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+p{
+    text-align: justify;
+}
+
+body {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.title {
+  color: var(--primary-color-light);
+}
+
+.image {
+  filter: var(--light-filter);
+}
+
+.btn {
+  border: 2px solid var(--primary-color-light);
+  color: var(--primary-color-light);
+}
+
+body.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.dark-theme .title {
+  color: var(--primary-color-dark);
+}
+
+body.dark-theme .image {
+  filter: var(--dark-filter);
+}
+
+body.dark-theme .btn {
+  border: 2px solid var(--primary-color-dark);
+  color: var(--primary-color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+  }
+
+  .title {
+    color: var(--primary-color-dark);
+  }
+
+  .image {
+    filter: var(--dark-filter);
+  }
+
+  .btn {
+    border: 2px solid var(--primary-color-dark);
+    color: var(--primary-color-dark);
+  }
+
+  body.light-theme {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+  }
+
+  body.light-theme .title {
+    color: var(--primary-color-light);
+  }
+
+  body.light-theme .image {
+    filter: var(--light-filter);
+  }
+
+  body.light-theme .btn {
+    border: 2px solid var(--primary-color-light);
+    color: var(--primary-color-light);
+  }
+}
