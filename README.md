@@ -1,1 +1,1 @@
-# :mortar_board: Dark Mode Basics
+# :mortar_board: Dark Mode Basics :moon:
