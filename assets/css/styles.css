@@ -1,14 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Texturina:wght@500&display=swap");
 :root {
   color-scheme: light dark;
-  --bg-color-dark: #333333;
-  --primary-color-dark: #ffbb55;
-  --text-color-dark: #ffe5bc;
-  --bg-color-light: #f2f2f2;
-  --primary-color-light: #0093d0;
-  --text-color-light: #4f4f4f;
-  --light-filter: none;
-  --dark-filter: brightness(0.6) contrast(1.2);
+  --bg-color: #f2f2f2;
+  --primary-color: #0093d0;
+  --text-color: #4f4f4f;
+  --filter: none;
 }
 
 * {
@@ -58,75 +54,42 @@ p{
 }
 
 body {
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .title {
-  color: var(--primary-color-light);
+  color: var(--primary-color);
 }
 
 .image {
-  filter: var(--light-filter);
+  filter: var(--filter);
 }
 
 .btn {
-  border: 2px solid var(--primary-color-light);
-  color: var(--primary-color-light);
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
 }
 
-body.dark-theme {
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
+.dark-theme{
+  --bg-color: #333333;
+  --primary-color: #ffbb55;
+  --text-color: #ffe5bc;
+  --filter: brightness(0.6) contrast(1.2);
 }
 
-body.dark-theme .title {
-  color: var(--primary-color-dark);
-}
-
-body.dark-theme .image {
-  filter: var(--dark-filter);
-}
-
-body.dark-theme .btn {
-  border: 2px solid var(--primary-color-dark);
-  color: var(--primary-color-dark);
+.light-theme{
+  --bg-color: #f2f2f2;
+  --primary-color: #0093d0;
+  --text-color: #4f4f4f;
+  --filter: none;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--bg-color-dark);
-    color: var(--text-color-dark);
-  }
-
-  .title {
-    color: var(--primary-color-dark);
-  }
-
-  .image {
-    filter: var(--dark-filter);
-  }
-
-  .btn {
-    border: 2px solid var(--primary-color-dark);
-    color: var(--primary-color-dark);
-  }
-
-  body.light-theme {
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
-  }
-
-  body.light-theme .title {
-    color: var(--primary-color-light);
-  }
-
-  body.light-theme .image {
-    filter: var(--light-filter);
-  }
-
-  body.light-theme .btn {
-    border: 2px solid var(--primary-color-light);
-    color: var(--primary-color-light);
+  :root{
+  --bg-color: #333333;
+  --primary-color: #ffbb55;
+  --text-color: #ffe5bc;
+  --filter: brightness(0.6) contrast(1.2);
   }
 }
