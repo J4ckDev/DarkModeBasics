@@ -15,6 +15,9 @@ In this guide, while you build the webpage of above, you will learn how to use C
   - [2.2. Color preferences](#22-color-preferences)
   - [2.3. Layout and colors](#23-layout-and-colors)
 - [3. Javascript](#3-javascript)
+- [3.1. Local Storage](#31-local-storage)
+- [3.2. Element Class List](#32-element-class-list)
+- [3.3. Code](#33-code)
 - [4. More to learn](#4-more-to-learn)
 
 ## 1. HTML
@@ -188,5 +191,58 @@ body {
 To separate the colors from the layout definition, I have written the element colors at the end. 
 
 ## 3. Javascript
+To complete our first dark mode webpage is necessary to create the code to allow the user to choose between the dark theme or light theme and save the preference.
+
+## 3.1. Local Storage
+The `localStorage` property allows saving objects for the webpage origin in the browser. In this case, when the user swaps the theme, the browser store the preference.
+
+The syntax to save data is `localStorage.setItem(key, value)` and to get an item is `localStorage.getItem(key)`. 
+
+## 3.2. Element Class List
+The `Element.classList` property allows access to the class attributes of an HTML element. In this case, when the theme preference exists in the browser or the user changes the theme, it's added to the `body` tag one of the classes defined in [section 2.2](#22-color-preferences).  
+
+The syntax to add a class in the body is `document.body.classList.add('class-name')` and to add a class when not exist or remove when exist the syntax is `document.body.classList.toggle('class-name')`.
+
+## 3.3. Code
+The Javascript code to store the user preference and change the theme with a button is the following: 
+
+```javascript
+const btnChanger = document.getElementById('Changer');
+const configUser = window.matchMedia('(prefers-color-scheme: dark)');
+const localConfig = localStorage.getItem('theme');
+
+if (localConfig === 'dark') {
+    document.body.classList.add('dark-theme');
+} else if (localConfig === 'light') {
+    document.body.classList.add('light-theme');
+}
+
+btnChanger.addEventListener('click', () => {
+    let themeColor;
+    if (configUser.matches) {
+        document.body.classList.toggle('light-theme')
+        themeColor = document.body.classList.contains('light-theme') ? 'light' : 'dark'
+    } else {
+        document.body.classList.toggle('dark-theme')
+        themeColor = document.body.classList.contains('dark-theme') ? 'dark' : 'light'
+    }
+    localStorage.setItem('theme', themeColor)
+})
+```
+As you see above, the `localConfig` variable controls local storage; the ` configUser` variable is in charge of identifying when a user has dark mode enabled or not to add the correct theme class, and the `btnChanger` variable handles the click event of the button to change the theme.
 
 ## 4. More to learn
+I invite you to visit the next links to learn more about the dark mode and other things that I didn't explain in this guide:
+
+- [A complete guide to dark mode on the web](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)
+- [Creating a website theme switcher with CSS only](https://alexandersandberg.com/theme-switcher/)
+- [Light & dark mode, with user-switch button](https://codepen.io/2kool2/pen/abzgPzJ)
+- [Implementing Dark Mode](https://www.dilmodev.com/implementing-dark-mode/)
+- [CSS Only Theme Switcher](https://github.com/alexandersandberg/theme-switcher)
+- [My dark theme implementation](https://chrismorgan.info/blog/dark-theme-implementation/)
+- [Dark theme](https://material.io/design/color/dark-theme.html)
+- [Dark mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode)
+- [Prefers color scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+- [Local Storage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
+- [Element Class List](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+- [Theme color](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color)
